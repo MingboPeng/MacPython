@@ -42,13 +42,12 @@ sudo install_name_tool -change /usr/local/pythonssl/lib/libcrypto.1.1.dylib  @lo
 
 # otool -l lib/libcrypto.1.1.dylib
 # install_name_tool -change /usr/local/pythonssl/lib/libcrypto.1.1.dylib  @loader_path/../lib/libcrypto.1.1.dylib lib/libcrypto.1.1.dylib
+ls
 
-bin/python -m pip install --upgrade pip
+sudo bin/python3 -m pip install --upgrade pip
 
+# pack python
 cd ../
 sudo pkgbuild --identifier macpython.pkg --root "python" --install-location "Applications/MacPython" MacPython.pkg
-
 sudo zip -r python_osx.zip MacPython.pkg
 
-
-bin/python -m pip install pydantic

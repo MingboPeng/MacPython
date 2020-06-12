@@ -17,6 +17,7 @@ jobs:
           CMAKE_OSX_ARCHITECTURES: x86_64
         run: |
           sudo bash build.sh
+          sudo /usr/local/python/bin/python3 -m pip install pydantic
           cp /usr/local/python_osx.zip ./python_osx.zip
           ls
 
