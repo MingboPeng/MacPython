@@ -1,0 +1,28 @@
+name: BuildPython
+
+on: 
+  push:
+    branches: [ master ]
+
+jobs:
+  prepare_assets:
+    name: build a portable python for Mac
+    runs-on: macos-latest
+    steps:
+      - name: "Checkout Master Branch"
+        uses: actions/checkout@v2
+
+      - name: Run build script
+        env:
+          CMAKE_OSX_ARCHITECTURES: x86_64
+        run: |
+          sudo bash build.sh
+          cp /usr/local/python_osx.zip ./python_osx.zip
+          ls
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: python_osx
+          path: python_osx.zip
+
