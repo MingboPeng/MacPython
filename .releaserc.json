@@ -1,0 +1,20 @@
+{
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    {
+                  
+                        "path": "python_osx.zip",
+                        "name": "MacPython-${nextRelease.version}.exe",
+                        "label": "MacPython-${nextRelease.version}.exe"
+
+                    }
+                ]
+            }
+        ]
+    ]
+}

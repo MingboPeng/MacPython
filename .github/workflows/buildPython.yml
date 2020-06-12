@@ -17,13 +17,15 @@ jobs:
           CMAKE_OSX_ARCHITECTURES: x86_64
         run: |
           sudo bash build.sh
-          sudo /usr/local/python/bin/python3 -m pip install pydantic
-          cp /usr/local/python_osx.zip ./python_osx.zip
+          cp /Users/runner/Desktop/python_osx.zip ./python_osx.zip
           ls
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: python_osx
-          path: python_osx.zip
+      - name: Test if pip could install modules
+        run: |
+          sudo /Users/runner/Desktop/python/bin/python3 -m pip install pydantic
+      
+
+      - run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 

@@ -207,7 +207,7 @@ _symtable symtablemodule.c
 
 # Socket module helper for SSL support; you must comment out the other
 # socket line above, and possibly edit the SSL variable:
-SSL=/usr/local/pythonssl
+SSL=/Users/runner/Desktop/pythonssl
 _ssl _ssl.c \
 	-DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
 	-L$(SSL)/lib -lssl -lcrypto
@@ -268,9 +268,9 @@ _ssl _ssl.c \
 # *** Always uncomment this (leave the leading underscore in!):
 # _tkinter _tkinter.c tkappinit.c -DWITH_APPINIT \
 # *** Uncomment and edit to reflect where your Tcl/Tk libraries are:
-#	-L/usr/local/lib \
+#	-L/Users/runner/Desktop/lib \
 # *** Uncomment and edit to reflect where your Tcl/Tk headers are:
-#	-I/usr/local/include \
+#	-I/Users/runner/Desktop/include \
 # *** Uncomment and edit to reflect where your X11 header files are:
 #	-I/usr/X11R6/include \
 # *** Or uncomment this for Solaris:
@@ -278,7 +278,7 @@ _ssl _ssl.c \
 # *** Uncomment and edit for Tix extension only:
 #	-DWITH_TIX -ltix8.1.8.2 \
 # *** Uncomment and edit for BLT extension only:
-#	-DWITH_BLT -I/usr/local/blt/blt8.0-unoff/include -lBLT8.0 \
+#	-DWITH_BLT -I/Users/runner/Desktop/blt/blt8.0-unoff/include -lBLT8.0 \
 # *** Uncomment and edit for PIL (TkImaging) extension only:
 #     (See http://www.pythonware.com/products/pil/ for more info)
 #	-DWITH_PIL -I../Extensions/Imaging/libImaging  tkImaging.c \
@@ -321,7 +321,7 @@ _ssl _ssl.c \
 
 # Anthony Baxter's gdbm module.  GNU dbm(3) will require -lgdbm:
 
-#_gdbm _gdbmmodule.c -I/usr/local/include -L/usr/local/lib -lgdbm
+#_gdbm _gdbmmodule.c -I/Users/runner/Desktop/include -L/Users/runner/Desktop/lib -lgdbm
 
 
 # Helper module for various ascii-encoders
