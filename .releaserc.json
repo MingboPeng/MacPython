@@ -9,8 +9,8 @@
                     {
                   
                         "path": "python_osx.zip",
-                        "name": "MacPython-${nextRelease.version}.exe",
-                        "label": "MacPython-${nextRelease.version}.exe"
+                        "name": "MacPython-${nextRelease.version}.zip",
+                        "label": "MacPython-${nextRelease.version}.zip"
 
                     }
                 ]
