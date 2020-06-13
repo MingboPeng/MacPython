@@ -23,10 +23,14 @@ cp ../Setup ./Modules
 sudo make -j8
 sudo make install -j8
 
-sudo cp /Users/runner/Desktop/pythonssl/lib/lib* /Users/runner/Desktop/python/lib/
 # copy libssl.1.1.dylib and libcrypto.1.1.dylib to python/lib
+sudo cp /Users/runner/Desktop/pythonssl/lib/lib* /Users/runner/Desktop/python/lib/
+
+
 
 cd /Users/runner/Desktop/python/
+
+
 # check links in python
 otool -l bin/python3
 #Fix python's link
@@ -46,8 +50,12 @@ ls
 
 sudo bin/python3 -m pip install --upgrade pip
 
+#make bin/python alias pointing to python3.8
+cd bin
+ln -s python3.8 python
+
 # pack python
-cd ../
+cd ../../
 # /Users/runner/Desktop/
 sudo pkgbuild --identifier macpython.pkg --root "python" --install-location "Applications/MacPython" MacPython.pkg
 sudo zip -r python_osx.zip MacPython.pkg
