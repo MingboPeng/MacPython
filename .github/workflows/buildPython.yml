@@ -22,7 +22,7 @@ jobs:
 
       - name: Test if pip could install modules
         run: |
-          sudo /Users/runner/Desktop/python/bin/python3 -m pip install pydantic
+          sudo /Users/runner/Desktop/python/bin/python -m pip install pydantic
       
 
       - run: npx semantic-release
