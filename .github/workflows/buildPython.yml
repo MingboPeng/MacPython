@@ -12,6 +12,11 @@ jobs:
       - name: "Checkout Master Branch"
         uses: actions/checkout@v2
 
+      - name: Check Homebrew
+        run: |
+          brew list
+          brew uninstall --ignore-dependencies gettext
+
       - name: Run build script
         env:
           CMAKE_OSX_ARCHITECTURES: x86_64
@@ -19,6 +24,14 @@ jobs:
           sudo bash build.sh
           cp /Users/runner/Desktop/python_osx.zip ./python_osx.zip
           ls
+
+      - name: Test python links
+        run: |
+          otool -l /Users/runner/Desktop/python/bin/python
+      
+      - name: Test ssl lib's lik
+        run: |
+          otool -l /Users/runner/Desktop/python/lib/libssl.1.1.dylib
 
       - name: Test if pip could install modules
         run: |
