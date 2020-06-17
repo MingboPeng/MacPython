@@ -12,7 +12,7 @@ jobs:
       - name: "Checkout Master Branch"
         uses: actions/checkout@v2
 
-      - name: Check Homebrew
+      - name: Check Homebrew- uninstall gettext
         run: |
           brew list
           brew uninstall --ignore-dependencies gettext
@@ -37,6 +37,9 @@ jobs:
         run: |
           sudo /Users/runner/Desktop/python/bin/python -m pip install pydantic
       
+      - name: Install gettext
+        run: |
+          brew install gettext
 
       - run: npx semantic-release
         env:
