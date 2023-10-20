@@ -15,11 +15,12 @@ jobs:
       - name: Check Homebrew- uninstall gettext
         run: |
           brew list
-          brew uninstall --ignore-dependencies gettext
+          # brew uninstall gettext
+          # brew install gettext
 
       - name: Run build script
-        env:
-          CMAKE_OSX_ARCHITECTURES: x86_64
+        # env:
+          # CMAKE_OSX_ARCHITECTURES: x86_64
         run: |
           sudo bash build379.sh 3.10.10 3.10
           cp /Users/runner/Desktop/python_osx.zip ./python_osx.zip
