@@ -3,20 +3,20 @@ set -e
 echo "pythonVersion: $1";
 echo "pythonMajorVersion: $2";
 
-# # download ssl source, compile
-# echo "Download SSL";
-# curl -O  https://www.openssl.org/source/openssl-1.1.1g.tar.gz
-# tar -zxvf openssl-1.1.1g.tar.gz
-# cd openssl-1.1.1g
-# ./config --prefix=/Users/runner/Desktop/pythonssl    # prefix : where to install
-# sudo make -j8
-# sudo make install -j8
+# download ssl source, compile
+echo "Download SSL";
+curl -O  https://www.openssl.org/source/openssl-1.1.1g.tar.gz
+tar -zxvf openssl-1.1.1g.tar.gz
+cd openssl-1.1.1g
+./config --prefix=/Users/runner/Desktop/pythonssl    # prefix : where to install
+sudo make -j8
+sudo make install -j8
 
 
 # download python source, compile
 echo "Download Python";
 cd ../
-curl -O  https://www.python.org/ftp/python/3.10.10/Python-3.10.10.tgz
+curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
 tar -zxvf Python-$1.tgz
 cd Python-$1
 

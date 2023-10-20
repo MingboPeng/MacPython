@@ -22,7 +22,7 @@ jobs:
         # env:
           # CMAKE_OSX_ARCHITECTURES: x86_64
         run: |
-          sudo bash build379.sh 3.10.10 3.10
+          sudo bash build379.sh 3.7.9 3.7
           cp /Users/runner/Desktop/python_osx.zip ./python_osx.zip
           ls
 
