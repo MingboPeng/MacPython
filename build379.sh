@@ -16,7 +16,7 @@ echo "pythonMajorVersion: $2";
 # download python source, compile
 echo "Download Python";
 cd ../
-curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
+curl -O  https://www.python.org/ftp/python/3.10.10/Python-3.10.10.tgz
 tar -zxvf Python-$1.tgz
 cd Python-$1
 
