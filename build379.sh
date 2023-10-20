@@ -3,6 +3,15 @@ set -e
 echo "pythonVersion: $1";
 echo "pythonMajorVersion: $2";
 
+
+# download python source, compile
+echo "Download Python";
+cd ../
+curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
+tar -zxvf Python-$1.tgz
+cd Python-$1
+
+
 # download ssl source, compile
 echo "Download SSL";
 curl -O  https://www.openssl.org/source/openssl-1.1.1g.tar.gz
@@ -12,13 +21,6 @@ cd openssl-1.1.1g
 sudo make -j8
 sudo make install -j8
 
-
-# download python source, compile
-echo "Download Python";
-cd ../
-curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
-tar -zxvf Python-$1.tgz
-cd Python-$1
 
 # copy Setup to Modules
 echo "copy Setup to Modules";
