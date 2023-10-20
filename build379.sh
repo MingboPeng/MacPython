@@ -52,7 +52,7 @@ cd /Users/runner/Desktop/python/
 
 
 ls
-echo "copy Setup to Modules";
+echo "install pip";
 sudo bin/python3 -m pip install --upgrade pip
 
 #make bin/python alias pointing to python3.7
@@ -60,6 +60,7 @@ cd bin
 ln -s python$2 python
 
 # pack python
+echo "pack python";
 cd ../../
 # /Users/runner/Desktop/
 sudo pkgbuild --identifier macpython.pkg --root "python" --install-location "Applications/MacPython" MacPython.pkg

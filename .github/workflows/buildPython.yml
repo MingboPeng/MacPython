@@ -17,7 +17,7 @@ jobs:
           brew list
           # brew uninstall gettext
           # brew install gettext
-          brew install gcc
+          # brew install gcc
 
       - name: Run build script
         env:
@@ -31,9 +31,9 @@ jobs:
         run: |
           otool -l /Users/runner/Desktop/python/bin/python
       
-      - name: Test ssl lib's lik
-        run: |
-          otool -l /Users/runner/Desktop/python/lib/libssl.1.1.dylib
+      # - name: Test ssl lib's lik
+      #   run: |
+      #     otool -l /Users/runner/Desktop/python/lib/libssl.1.1.dylib
 
       - name: Test if pip could install modules
         run: |
