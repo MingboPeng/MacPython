@@ -17,6 +17,7 @@ jobs:
           brew list
           # brew uninstall gettext
           # brew install gettext
+          brew install gcc
 
       - name: Run build script
         env:
