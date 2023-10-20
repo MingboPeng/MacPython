@@ -10,7 +10,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: "Checkout Master Branch"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Check Homebrew- uninstall gettext
         run: |
@@ -21,7 +21,7 @@ jobs:
         env:
           CMAKE_OSX_ARCHITECTURES: x86_64
         run: |
-          sudo bash build379.sh
+          sudo bash build379.sh 3.7.9 3.7
           cp /Users/runner/Desktop/python_osx.zip ./python_osx.zip
           ls
 

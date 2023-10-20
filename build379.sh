@@ -1,5 +1,7 @@
 set -e
 
+echo "pythonVersion: $1";
+echo "pythonMajorVersion: $2";
 
 # download ssl source, compile
 curl -O  https://www.openssl.org/source/openssl-1.1.1g.tar.gz
@@ -12,9 +14,9 @@ sudo make install -j8
 
 # download python source, compile
 cd ../
-curl -O  https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz
-tar -zxvf Python-3.7.9.tgz
-cd Python-3.7.9
+curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
+tar -zxvf Python-$1.tgz
+cd Python-$1
 
 # copy Setup to Modules
 cp ../Setup.dist ./Modules
@@ -52,7 +54,7 @@ sudo bin/python3 -m pip install --upgrade pip
 
 #make bin/python alias pointing to python3.7
 cd bin
-ln -s python3.7 python
+ln -s python$2 python
 
 # pack python
 cd ../../
