@@ -20,9 +20,9 @@ curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
 tar -zxvf Python-$1.tgz
 cd Python-$1
 
-# copy Setup to Modules
-echo "copy Setup to Modules";
-cp ../Setup.dist ./Modules
+# # copy Setup to Modules
+# echo "copy Setup to Modules";
+# cp ../Setup.dist ./Modules
 
 ./configure --prefix=/Users/runner/Desktop/python --enable-optimizations
 sudo make -j8
@@ -34,7 +34,7 @@ sudo make install -j8
 
 
 
-# cd /Users/runner/Desktop/python/
+cd /Users/runner/Desktop/python/
 
 
 # # check links in python
@@ -52,7 +52,7 @@ sudo make install -j8
 
 
 ls
-
+echo "copy Setup to Modules";
 sudo bin/python3 -m pip install --upgrade pip
 
 #make bin/python alias pointing to python3.7
