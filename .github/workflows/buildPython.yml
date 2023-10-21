@@ -14,10 +14,10 @@ jobs:
 
       - name: Check Homebrew- uninstall gettext
         run: |
-          locate libintl.8.dylib
+          /usr/local/opt/gettext/bin/gettext --version
           brew list
           brew uninstall --ignore-dependencies gettext
-          locate libintl.8.dylib
+          /usr/local/opt/gettext/bin/gettext --version
 
       - name: Run build script
         env:
