@@ -15,7 +15,7 @@ jobs:
       - name: Check Homebrew- uninstall gettext
         run: |
           brew list
-          brew uninstall --force gettext
+          brew uninstall --ignore-dependencies gettext
 
       - name: Run build script
         env:
