@@ -7,10 +7,15 @@ on:
 jobs:
   prepare_assets:
     name: build a portable python for Mac
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
       - name: "Checkout Master Branch"
         uses: actions/checkout@v4
+
+      - name: Check Homebrew- uninstall gettext
+        run: |
+          brew list
+          brew uninstall --force gettext
 
       - name: Run build script
         env:
