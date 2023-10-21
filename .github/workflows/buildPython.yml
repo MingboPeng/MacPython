@@ -22,7 +22,7 @@ jobs:
           brew unlink gettext
           brew cleanup --prune=all
           
-          rm /usr/local/Cellar/gettext/
+          rm -R /usr/local/Cellar/gettext/
 
       - name: test gettext
         run: |
