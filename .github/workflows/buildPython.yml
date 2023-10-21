@@ -15,14 +15,10 @@ jobs:
       - name: Check Homebrew- uninstall gettext
         run: |
           /usr/local/opt/gettext/bin/gettext --version
-          brew list
+          otool -l /usr/local/opt/gettext/lib/libintl.8.dylib
 
-          rm /usr/local/bin/gettext
-          rm /usr/local/lib/libintl.8.dylib
-          brew unlink gettext
-          brew cleanup --prune=all
-          
-          rm -R /usr/local/Cellar/gettext/
+          /usr/local/bin/gettext --version
+
 
       - name: test gettext
         run: |
