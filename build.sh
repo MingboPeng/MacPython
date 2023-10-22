@@ -15,8 +15,16 @@ sudo make -j8
 sudo make install -j8
 
 
+# copy libintl.8.dylib to python/lib
+sudo cp /usr/local/opt/gettext/lib/libintl.8.dylib /Users/runner/Desktop/python/lib/
+
 cd /Users/runner/Desktop/python/
 
+# check links in python
+otool -l bin/python3
+#Fix python's link
+sudo install_name_tool -change /usr/local/opt/gettext/lib/libintl.8.dylib  @loader_path/../lib/libintl.8.dylib bin/python3
+otool -l bin/python3
 
 ls
 echo "install pip";
