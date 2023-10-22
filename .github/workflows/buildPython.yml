@@ -26,7 +26,13 @@ jobs:
 
       - name: Test if pip could install modules
         run: |
-          sudo /Users/runner/Desktop/python/bin/python -m pip install pydantic
+          sudo cp -R /Users/runner/Desktop/python /Users/runner/Desktop/python2
+          sudo /Users/runner/Desktop/python2/bin/python -m pip install pydantic
+      
+      - name: Upload installers
+        uses: actions/upload-artifact@v3
+        with:
+          path: /Users/runner/Desktop/python
       
       - run: npx semantic-release
         env:
