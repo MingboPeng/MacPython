@@ -13,6 +13,8 @@ sudo make -j8
 sudo make install -j8
 
 
+cd ../
+
 # download python source, compile
 echo "Download Python";
 curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
