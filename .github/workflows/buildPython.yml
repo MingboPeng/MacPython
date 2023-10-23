@@ -18,12 +18,19 @@ jobs:
         run: |
           sudo bash build.sh 3.10.10 3.10
           mkdir assets
-          cp ./python_osx.zip ./assets/python_osx.zip
+          
           cp ./MacPython.zip ./assets/MacPython.zip
           ls
 
-      - name: unzip python_osx.zip
+      - name: zip python
         run: |
+          echo "zip python"
+          mkdir macpython
+          sudo cp -R /Users/runner/Desktop/python ./macpython
+          sudo zip -r python_osx.zip ./macpython
+          cp ./python_osx.zip ./assets/python_osx.zip
+
+          echo "unzip python test"
           mkdir newpython
           sudo unzip ./assets/python_osx.zip -d ./newpython
           cd newpython
@@ -31,11 +38,11 @@ jobs:
 
       - name: Test python links
         run: |
-          otool -l ./newpython/bin/python
+          otool -l ./macpython/bin/python
 
       - name: Test if pip could install modules
         run: |
-          sudo ./newpython/bin/python -m pip install pydantic
+          sudo ./macpython/bin/python -m pip install pydantic
       
       - name: Upload assets
         uses: actions/upload-artifact@v3
