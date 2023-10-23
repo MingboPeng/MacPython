@@ -9,8 +9,15 @@
                     {
                   
                         "path": "python_osx.zip",
-                        "name": "MacPython-${nextRelease.version}.zip",
-                        "label": "MacPython-${nextRelease.version}.zip"
+                        "name": "python_osx-${nextRelease.version}.zip",
+                        "label": "python_osx-${nextRelease.version}.zip"
+
+                    },
+                    {
+                  
+                        "path": "MacPython.zip",
+                        "name": "MacPythonPKG-${nextRelease.version}.zip",
+                        "label": "MacPythonPKG-${nextRelease.version}.zip"
 
                     }
                 ]

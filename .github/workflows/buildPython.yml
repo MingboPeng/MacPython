@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  prepare_assets:
+  build:
     name: build a portable python for Mac
     runs-on: macos-11
     steps:
@@ -17,7 +17,9 @@ jobs:
           CMAKE_OSX_ARCHITECTURES: x86_64
         run: |
           sudo bash build.sh 3.10.10 3.10
-          cp /Users/runner/Desktop/python_osx.zip ./python_osx.zip
+          mkdir assets
+          cp /Users/runner/Desktop/python_osx.zip ./assets/python_osx.zip
+          cp /Users/runner/Desktop/MacPython.zip ./assets/MacPython.zip
           ls
 
       - name: Test python links
@@ -32,9 +34,30 @@ jobs:
       - name: Upload installers
         uses: actions/upload-artifact@v3
         with:
-          path: /Users/runner/Desktop/python
+          path: assets
       
+
+  
+  test:
+    runs-on: macos-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
+
+      - run: |
+          ls
+          cp ./assets/python_osx.zip ./
+
+      - name: Test if pip could install modules
+        run: |
+          sudo unzip python_osx.zip
+          ls
+          sudo ./python/bin/python3 -m pip install ladybug-core
+
       - run: npx semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+
 
