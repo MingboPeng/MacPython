@@ -18,8 +18,7 @@ jobs:
         run: |
           sudo bash build.sh 3.10.10 3.10
           mkdir assets
-          
-          cp ./MacPython.zip ./assets/MacPython.zip
+          cp /Users/runner/Desktop/MacPython.zip ./assets/MacPython.zip
           ls
 
       - name: zip python
