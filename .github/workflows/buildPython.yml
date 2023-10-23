@@ -48,7 +48,7 @@ jobs:
         with:
           path: assets/*
       
-          
+
   test:
     runs-on: macos-latest
     needs: build
@@ -59,7 +59,7 @@ jobs:
       - name: unzip python zip
         run: |
           ls
-          cp ./artifact/python_osx.zip ./
+          cp ./artifact/*.zip ./
           sudo unzip python_osx.zip
           ls
           cd ./python
