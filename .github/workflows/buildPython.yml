@@ -24,11 +24,10 @@ jobs:
       - name: zip python
         run: |
           echo "zip python"
-          mkdir macpython
-          sudo cp -R /Users/runner/Desktop/python ./macpython
-          sudo zip -r python_osx.zip ./macpython
+          sudo cp -R /Users/runner/Desktop/python ./
+          sudo zip -r python_osx.zip ./python
           cp ./python_osx.zip ./assets/python_osx.zip
-
+          
           echo "unzip python test"
           mkdir newpython
           sudo unzip ./assets/python_osx.zip -d ./newpython
@@ -37,11 +36,12 @@ jobs:
 
       - name: Test python links
         run: |
-          otool -l ./macpython/bin/python
+          otool -l ./python/bin/python
 
       - name: Test if pip could install modules
         run: |
-          sudo ./macpython/bin/python -m pip install pydantic
+          sudo ./python/bin/python -m pip install pydantic
+          sudo ./python/bin/python -m pip install ladybug-core
       
       - name: Upload assets
         uses: actions/upload-artifact@v3
