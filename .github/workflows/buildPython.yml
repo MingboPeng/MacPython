@@ -68,7 +68,7 @@ jobs:
 
       - name: Test if pip could install modules
         run: |
-          sudo ./bin/python3 -m pip install ladybug-core
+          sudo ./python/bin/python3 -m pip install ladybug-core
 
       - run: npx semantic-release
         env:
