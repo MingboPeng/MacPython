@@ -68,4 +68,4 @@ cd ../../
 # /Users/runner/Desktop/
 sudo pkgbuild --identifier macpython.pkg --root "python" --install-location "Applications/MacPython" MacPython.pkg
 sudo zip -r MacPython.zip MacPython.pkg
-sudo zip -r python_osx.zip /Users/runner/Desktop/python/
+sudo zip -r python_osx.zip /Users/runner/Desktop/python/*

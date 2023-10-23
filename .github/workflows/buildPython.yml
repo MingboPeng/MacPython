@@ -18,18 +18,24 @@ jobs:
         run: |
           sudo bash build.sh 3.10.10 3.10
           mkdir assets
-          cp /Users/runner/Desktop/python_osx.zip ./assets/python_osx.zip
-          cp /Users/runner/Desktop/MacPython.zip ./assets/MacPython.zip
+          cp ./python_osx.zip ./assets/python_osx.zip
+          cp ./MacPython.zip ./assets/MacPython.zip
+          ls
+
+      - name: unzip python_osx.zip
+        run: |
+          mkdir newpython
+          sudo unzip ./assets/python_osx.zip -d ./newpython
+          cd newpython
           ls
 
       - name: Test python links
         run: |
-          otool -l /Users/runner/Desktop/python/bin/python
+          otool -l ./newpython/bin/python
 
       - name: Test if pip could install modules
         run: |
-          sudo cp -R /Users/runner/Desktop/python /Users/runner/Desktop/python2
-          sudo /Users/runner/Desktop/python2/bin/python -m pip install pydantic
+          sudo ./newpython/bin/python -m pip install pydantic
       
       - name: Upload assets
         uses: actions/upload-artifact@v3
@@ -50,10 +56,13 @@ jobs:
           ls
           cp ./artifact/python_osx.zip ./
           sudo unzip python_osx.zip
+          ls
+          cd ./python
+          ls
 
       - name: Test if pip could install modules
         run: |
-          sudo /Users/runner/Desktop/python/bin/python3 -m pip install ladybug-core
+          sudo ./bin/python3 -m pip install ladybug-core
 
       - run: npx semantic-release
         env:
