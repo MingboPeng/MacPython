@@ -31,7 +31,7 @@ jobs:
           sudo cp -R /Users/runner/Desktop/python /Users/runner/Desktop/python2
           sudo /Users/runner/Desktop/python2/bin/python -m pip install pydantic
       
-      - name: Upload installers
+      - name: Upload assets
         uses: actions/upload-artifact@v3
         with:
           path: assets/*
@@ -45,16 +45,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
 
-      - run: |
+      - name: unzip python zip
+        run: |
           ls
           cp ./artifact/python_osx.zip ./
+          sudo unzip python_osx.zip
 
       - name: Test if pip could install modules
         run: |
-          sudo unzip python_osx.zip
-          cd ./python
-          ls
-          sudo ./bin/python3 -m pip install ladybug-core
+          sudo /Users/runner/Desktop/python//bin/python3 -m pip install ladybug-core
 
       - run: npx semantic-release
         env:
