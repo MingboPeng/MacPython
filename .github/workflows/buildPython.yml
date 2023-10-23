@@ -34,7 +34,7 @@ jobs:
       - name: Upload installers
         uses: actions/upload-artifact@v3
         with:
-          path: assets
+          path: assets/*
       
 
   
@@ -47,13 +47,14 @@ jobs:
 
       - run: |
           ls
-          cp ./assets/python_osx.zip ./
+          cp ./artifact/python_osx.zip ./
 
       - name: Test if pip could install modules
         run: |
           sudo unzip python_osx.zip
+          cd ./python
           ls
-          sudo ./python/bin/python3 -m pip install ladybug-core
+          sudo ./bin/python3 -m pip install ladybug-core
 
       - run: npx semantic-release
         env:
