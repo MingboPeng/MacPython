@@ -34,9 +34,9 @@ otool -l bin/python3
 sudo install_name_tool -change /usr/local/opt/gettext/lib/libintl.8.dylib  @loader_path/../lib/libintl.8.dylib bin/python3
 
 #Fix python's link: libssl.3.dylib and libcrypto.3.dylib
-sudo install_name_tool -change /usr/local/opt/openssl@3/lib/libssl.3.dylib  @loader_path/../lib/libssl.3.dylib lib/python3.10/lib-dynload/_ssl.cpython-310-darwin.so
-sudo install_name_tool -change /usr/local/opt/openssl@3/lib/libcrypto.3.dylib  @loader_path/../lib/libcrypto.3.dylib lib/python3.10/lib-dynload/_ssl.cpython-310-darwin.so
-otool -l bin/python3
+sudo install_name_tool -change /usr/local/opt/openssl@3/lib/libssl.3.dylib  @loader_path/../../libssl.3.dylib lib/python3.10/lib-dynload/_ssl.cpython-310-darwin.so
+sudo install_name_tool -change /usr/local/opt/openssl@3/lib/libcrypto.3.dylib  @loader_path/../../libcrypto.3.dylib lib/python3.10/lib-dynload/_ssl.cpython-310-darwin.so
+otool -l lib/python3.10/lib-dynload/_ssl.cpython-310-darwin.so
 
 
 ls
