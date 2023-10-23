@@ -4,8 +4,6 @@ echo "pythonVersion: $1";
 echo "pythonMajorVersion: $2";
 
 
-cd ../
-
 # download python source, compile
 echo "Download Python";
 curl -O  https://www.python.org/ftp/python/$1/Python-$1.tgz
